@@ -8,7 +8,41 @@
 </head>
 
 <body>
+    <section>
+        <h1>Fargevalg</h1>
+        <button id="rød" onclick="generer('rød')">Rød</button>
+        <br><br>
+    </section>
 
+    <section>
+        <button id="blå" onclick="generer('blå')">Blå</button>
+        <br><br>
+    </section>
+
+    <section>
+        <button id="grønn" onclick="generer('grønn')">Grønn</button>
+        <br><br>
+        <div id="output"></div>
+    </section>
+
+    <script>
+
+        function generer(farge) {
+
+            if (farge === 'rød') {
+                output = `Du har valgt fargen rød.`
+            } else if (farge === 'blå') {
+                output = `Du har valgt fargen blå.`
+            }
+            else if (farge === 'grønn') {
+                output = `Du har valgt fargen grønn.`
+            }
+
+            document.getElementById("output").innerHTML = output;
+
+        }
+
+    </script>
 </body>
 
 </html>
