@@ -13,19 +13,25 @@
         <input type="text" id="navn" name="navn" placeholder="Skriv inn navnet ditt" required>
         <br><br>
         <button onclick="generer()">Submit</button>
+        <div id="output"></div>
     </section>
 
     <script>
 
-        document.getElementById("navn").value.trim();
+
 
         function generer() {
 
+            let navn = document.getElementById("navn").value.trim();
+
             if (navn === "") {
-
+                output = `Vennligst skriv inn navnet ditt`;
             } else {
-
+                output = `Hei ${navn}`;
             }
+
+            document.getElementById("output").innerHTML = output;
+
         }
 
     </script>
