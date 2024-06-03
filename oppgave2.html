@@ -28,9 +28,54 @@
     <section>
         <input type="number" name="tall" id="tall" placeholder="Skriv inn et tall" required>
         <br><br>
-        <button onclick="generer()">Submit</button>
+        <button onclick="generer()">Regn ut</button>
         <div id="output"></div>
     </section>
+
+    <script>
+
+        function generer() {
+
+            let nummer = document.getElementById("nummer").value;
+
+            let tall = document.getElementById("tall").value;
+
+            let kalkulator = document.getElementById("kalkulator").value;
+
+
+            if (nummer === "" || tall === "") {
+                output = "Vennligst skriv inn tall verdier";
+            } else {
+
+                let num1 = parseFloat(nummer);
+                let num2 = parseFloat(tall);
+
+
+                if (kalkulator === "+") {
+                    let pluss = num1 + num2;
+                    output = `Summen av dette er ${pluss}`;
+                } else if (kalkulator === "-") {
+                    let minus = num1 - num2;
+                    output = `Summen av dette er ${minus}`;
+                } else if (kalkulator === "/") {
+                    if (num2 === 0) {
+                        output = "Kan ikke dele med null";
+                    } else {
+                        let deling = num1 / num2;
+                        output = `Summen av dette er ${deling}`;
+                    }
+                } else if (kalkulator === "*") {
+                    let ganging = num1 * num2;
+                    output = `Summen av dette er ${ganging}`;
+                }
+            }
+
+            document.getElementById("output").innerHTML = output;
+
+        }
+
+
+    </script>
 </body>
 
 </html>
