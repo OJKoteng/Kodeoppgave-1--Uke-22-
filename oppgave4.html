@@ -8,7 +8,58 @@
 </head>
 
 <body>
+    <section>
+        <h1>Fargevalg</h1>
+        <label for="slider1">Velg fargekode - RGB</label>
+        <!--Her bruker jeg en oninput verdi for å sørge for at RGB verdien endrer seg ut ifra bruker-input-->
+        <input type="range" name="slider1" id="slider1" min="0" max="255" oninput="updateSliderValue(1)">
+        <!--Her er det brukt et span element for å vise den nåværende verdien på sliden for lettere brukervennlighet-->
+        <span id="value1">128</span>
+        <br><br>
+    </section>
 
+    <section>
+        <label for="slider2">Velg fargekode - RGB</label>
+        <input type="range" name="slider2" id="slider2" min="0" max="255" oninput="updateSliderValue(2)">
+        <span id="value2">128</span>
+        <br><br>
+    </section>
+
+    <section>
+        <label for="slider3">Velg fargekode - RGB</label>
+        <input type="range" name="slider3" id="slider3" min="0" max="255" oninput="updateSliderValue(3)">
+        <span id="value3">128</span>
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="updateBackgroundColor()">Endre bakgrunnsfarge</button>
+    </section>
+
+    <script>
+
+        function updateBackgroundColor() {
+
+            let rød = document.getElementById("slider1").value;
+
+            let grønn = document.getElementById("slider2").value;
+
+            let blå = document.getElementById("slider3").value;
+
+            //Slik lager vi RGB verdiene 
+            let rgbColor = `rgb(${rød}, ${grønn}, ${blå})`;
+
+            //Sånn setter vi bakgrunnsfargen på bodyen
+            document.body.style.backgroundColor = rgbColor;
+        }
+
+        function updateSliderValue(sliderNumber) {
+            let value = document.getElementById('slider' + sliderNumber).value;
+            document.getElementById('value' + sliderNumber).innerText = value;
+        }
+
+
+    </script>
 </body>
 
 </html>
