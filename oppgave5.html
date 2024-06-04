@@ -10,7 +10,64 @@
 <body>
     <section>
         <h1>Handleliste</h1>
+        <ul>
+            <li>
+                <label for="melk">Melk</label>
+                <input type="checkbox" name="melk" id="melk">
+            </li>
+
+            <li>
+                <label for="egg">Egg</label>
+                <input type="checkbox" name="egg" id="egg">
+            </li>
+
+            <li>
+                <label for="brød">Brød</label>
+                <input type="checkbox" name="Brød" id="Brød">
+            </li>
+        </ul>
     </section>
+
+    <section>
+        <button onclick="generer()">Legg til handlekurv</button>
+        <div id="output"></div>
+    </section>
+
+    <script>
+
+        function generer() {
+
+            let melk = document.getElementById("melk").value;
+
+            let egg = document.getElementById("egg").value;
+
+            let brød = document.getElementById("brød").value;
+
+            if (melk === "" && egg === "" && brød === "") {
+                output = `Vennligst velg produkter til handlekurven`
+            } else {
+                //Her lager jeg en array, en array er en måte å samle flere variabler, typisk i en liste eller lignende. 
+                let selectedItems = [];
+                //Her bruker jeg selectedItems.push(melk) som griper fatt i verdien fra arrayen og pusher dette itemet om det er valgt. 
+                if (melk !== "") {
+                    selectedItems.push(melk);
+                }
+                if (egg !== "") {
+                    selectedItems.push(egg);
+                }
+                if (melk !== "") {
+                    selectedItems.push(brød);
+                }
+                // Her bruker jeg selected.Items.join(",") med en parantes for å også legge til ett komma etter hvert item i output feltet. 
+                output = `Du har valgt ${selectedItems.join(",")} til handlekurven`
+            }
+
+            document.getElementById("output").innerHTML = output;
+
+
+        }
+
+    </script>
 </body>
 
 </html>
