@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutaomregner</title>
+</head>
+
+<body>
+    <section>
+        <h1>Valutaomregner</h1>
+        <label for="beløp">Skriv inn beløpet</label>
+        <input type="number" name="beløp" id="beløp" required>
+        <br><br>
+    </section>
+
+    <section>
+        <label for="valuta">Velg kurs du vil konvertere til</label>
+        <select name="kurs" id="kurs">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="nok">NOK</option>
+        </select>
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="generer()">Omgjør til valgt kurs</button>
+        <div id="output"></div>
+    </section>
+</body>
+
+</html>
