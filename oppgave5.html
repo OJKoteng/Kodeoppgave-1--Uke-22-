@@ -23,7 +23,7 @@
 
             <li>
                 <label for="brød">Brød</label>
-                <input type="checkbox" name="Brød" id="Brød">
+                <input type="checkbox" name="brød" id="brød">
             </li>
         </ul>
     </section>
@@ -34,40 +34,37 @@
     </section>
 
     <script>
-
         function generer() {
+            // Her bruker jeg .checked fordi om man prøver å hente verdien med .value så får man ikke tilbake riktig svar i output. Bruker .checked siden dette er en liste med items.
+            let melkChecked = document.getElementById("melk").checked;
+            let eggChecked = document.getElementById("egg").checked;
+            let brødChecked = document.getElementById("brød").checked;
 
-            let melk = document.getElementById("melk").value;
+            let output;
 
-            let egg = document.getElementById("egg").value;
-
-            let brød = document.getElementById("brød").value;
-
-            if (melk === "" && egg === "" && brød === "") {
-                output = `Vennligst velg produkter til handlekurven`
+            if (!melkChecked && !eggChecked && !brødChecked) {
+                output = `Vennligst velg produkter til handlekurven`;
             } else {
-                //Her lager jeg en array, en array er en måte å samle flere variabler, typisk i en liste eller lignende. 
+                // Her lager jeg en array, en array er en måte å samle flere variabler, typisk i en liste eller lignende.
                 let selectedItems = [];
-                //Her bruker jeg selectedItems.push(melk) som griper fatt i verdien fra arrayen og pusher dette itemet om det er valgt. 
-                if (melk !== "") {
-                    selectedItems.push(melk);
+                // Her bruker jeg selectedItems.push(melk) som griper fatt i verdien fra arrayen og pusher dette itemet om det er valgt.
+                if (melkChecked) {
+                    selectedItems.push("Melk");
                 }
-                if (egg !== "") {
-                    selectedItems.push(egg);
+                if (eggChecked) {
+                    selectedItems.push("Egg");
                 }
-                if (melk !== "") {
-                    selectedItems.push(brød);
+                if (brødChecked) {
+                    selectedItems.push("Brød");
                 }
-                // Her bruker jeg selected.Items.join(",") med en parantes for å også legge til ett komma etter hvert item i output feltet. 
-                output = `Du har valgt ${selectedItems.join(",")} til handlekurven`
+                // Her bruker jeg selected.Items.join(",") med en parantes for å også legge til ett komma etter hvert item i output feltet.
+                output = `Du har valgt ${selectedItems.join(", ")} til handlekurven`;
             }
 
             document.getElementById("output").innerHTML = output;
-
-
         }
-
     </script>
+
 </body>
 
 </html>
