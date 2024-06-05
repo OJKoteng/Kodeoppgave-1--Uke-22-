@@ -43,6 +43,53 @@
         <button onclick="generer()">Beregn gjennomsnitt</button>
         <div id="output"></div>
     </section>
+
+    <script>
+
+        function generer() {
+
+            let karakter1 = document.getElementById("karakter1").value.trim();
+
+            let karakter2 = document.getElementById("karakter2").value.trim();
+
+            let karakter3 = document.getElementById("karakter3").value.trim();
+
+            let karakter4 = document.getElementById("karakter4").value.trim();
+
+            let karakter5 = document.getElementById("karakter5").value.trim();
+
+            if (karakter1 === "" || karakter2 === "" || karakter3 === "" || karakter4 === "" || karakter5 === "") {
+                output = `Du har ikke skrevet inn noen tallverdier`
+            } else {
+                let gjennomsnitt = (parseInt(karakter1) + parseInt(karakter2) + parseInt(karakter3) + parseInt(karakter4) + parseInt(karakter5)) / 5;
+                gjennomsnitt = gjennomsnitt.toFixed(2);
+                output = ` Studenten fikk ${gjennomsnitt} i snitt.`
+
+                // Om du skal legge til noen nye forhold i f eks en ny ifelse statement så må du bruke += for å legge til dette svaret til det andre outputet.
+                if (gjennomsnitt >= 6) {
+                    output += ` Dette tilsvarer karakteren A`
+                } else if (gjennomsnitt >= 5) {
+                    output += ` Dette tilsvarer karakteren B`
+                }
+                else if (gjennomsnitt >= 4) {
+                    output += ` Dette tilsvarer karakteren C`
+                }
+                else if (gjennomsnitt >= 3) {
+                    output += ` Dette tilsvarer karakteren D`
+                }
+                else if (gjennomsnitt >= 2) {
+                    output += ` Dette tilsvarer karakteren E`
+                }
+                else if (gjennomsnitt >= 1) {
+                    output += ` Dette tilsvarer karakteren F`
+                }
+
+
+                document.getElementById("output").innerHTML = output;
+            }
+        }
+
+    </script>
 </body>
 
 </html>
