@@ -8,6 +8,45 @@
 </head>
 
 <body>
+    <section>
+        <h1>Lønnskalkulator</h1>
+        <label for="timepris">Skriv inn timepris</label>
+        <input type="number" name="timepris" id="timepris" required>
+        <br><br>
+    </section>
+
+    <section>
+        <label for="timer">Skriv inn antall timer</label>
+        <input type="number" name="timer" id="timer" required>
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="generer()">Beregn timelønn</button>
+        <div id="output"></div>
+    </section>
+
+    <script>
+
+        function generer() {
+
+            let timepris = document.getElementById("timepris").value.trim();
+
+            let timer = document.getElementById("timer").value.trim();
+
+            // Her må man ha en ekstra parantes rundt hver av de to utfallene, og det må settes || mellom alle verdiene. Så må dette settes opp fire ganger for å dekke alle utfallene i per kategori.
+            if ((timepris === "" || timepris === "-") || (timer === "" || timer === "-")) {
+                output = `Du har ikke skrevet inn gyldige tallverdier`;
+            } else {
+                let timelønn = timepris * timer
+                output = `Du har en timelønn på ${timelønn} kr `;
+            }
+
+            document.getElementById("output").innerHTML = output;
+
+        }
+
+    </script>
 
 </body>
 
